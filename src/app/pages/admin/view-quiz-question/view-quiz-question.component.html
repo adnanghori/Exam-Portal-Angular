@@ -1,0 +1,67 @@
+<mat-card style="margin-top: 20px;">
+    <button style="margin-top: -5px;" mat-icon-button color="accent" aria-label="Example icon button with a home icon" [routerLink]="'/admin/add-question/'+qid">
+        <mat-icon>add</mat-icon>
+        Add New Question
+      </button>
+    <mat-list>
+        <div mat-subheader>Questions For {{quiz.quizTitle}}</div>
+    </mat-list>
+
+    <div class="bootstrap-wrapper">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card *ngFor="let q of question;let i=index" style="margin-bottom: 20px;">
+                    <mat-card-content>
+                        <h4>
+                          <b>Q.{{i+1}}</b><span style="margin-left: 20px;" [innerHTML]="q.questionContent"></span>
+                        </h4>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>
+                                      <b>1.</b>  {{q.option_1}}
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>
+                                        <b>2.</b>   {{q.option_2}}
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>
+                                        <b>3.</b>  {{q.option_3}}
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>
+                                        <b>4.</b>    {{q.option_4}}
+                                    </h4>
+                                </div>
+                            </div>
+                            <mat-divider></mat-divider>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 style="margin-top: 10px;"><b>Correct Answer : </b>{{q.questionAnswer}}</h3>
+                                </div>
+                                <div class="col-md-3">
+                                    <button style="margin-top: 5px;" mat-icon-button color="primary" [routerLink]="'/admin/update-question/'+this.quiz.quizTitle+'/'+q.questionId">
+                                        <mat-icon>update</mat-icon>
+                                    Update Question
+                                      </button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button style="margin-top: 5px;" mat-icon-button color="warn" (click)="deleteQuestion(q.questionId)">
+                                        <mat-icon>delete</mat-icon>
+                                        Delete Question
+                                      </button>
+                                </div>
+                               
+                            </div>
+                            
+                            </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</mat-card>

@@ -1,0 +1,47 @@
+
+<mat-card class="body" *ngIf="user" style="margin-top: 20px;">
+    <h3>Your Profile Details</h3>
+    <!-- {{user|json}} -->
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+
+                <div class="container text-center">
+                    <img class="profile" src="../../../assets/default.png" alt="">
+                    <h1 class="user">{{user.userFirstName}} {{user.userLastName}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                       <table  class="table">
+                        <tr>
+                            <td>Username</td>
+                            <td>{{user.userName}}</td>
+                        </tr>
+                        <tr>
+                            <td>UserId</td>
+                            <td>EXAM{{" "+user.userId}}</td>
+                        </tr>
+                        <tr *ngIf="user.userContactNumber">
+                            <td>Phone</td>
+                            <td>{{user.userContactNumber}}</td>
+                        </tr>
+                        <tr *ngIf="user.authorities.length>0">
+                            <td>Role</td>
+                            <td>{{user.authorities[0].authority}}</td>
+                        </tr>
+                        <tr>
+                            <td>STATUS</td>
+                            <td>{{user.userIsEnabled?"ACTIVE":"NOT_ACTIVE"}}</td>
+                        </tr>
+                       </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+        <button routerLink="/user-dashboard/profile/update" mat-raised-button color="accent" id="update">UPDATE</button>
+      </mat-card-actions>
+</mat-card>
+

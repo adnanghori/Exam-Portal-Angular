@@ -1,0 +1,22 @@
+h1 , h2 , p{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    align-items: flex-start;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table tr td{
+    padding: 20px 50px;
+    border: 1px solid #fce4ec ;
+  }

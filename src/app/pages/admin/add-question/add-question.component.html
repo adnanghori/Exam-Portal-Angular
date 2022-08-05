@@ -1,0 +1,76 @@
+<mat-card style="margin-top: 20px;">
+    <mat-list> <div mat-subheader>Add Question For {{quiz.quizTitle}}</div></mat-list>
+   
+
+    <mat-card-content>
+       <div class="bootstrap-wrapper">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form (ngSubmit)="addQuestion()">
+                    <mat-form-field class="w100" appearance="outline">
+                        <mat-label>Content</mat-label>
+                        <textarea type="text" required name="questionContent" matInput [(ngModel)]="this.question.questionContent"></textarea>
+                    </mat-form-field>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-form-field class="w100" appearance="outline">
+                                <mat-label>Option 1</mat-label>
+                                <input type="text" required name="option_1" [(ngModel)]="this.question.option_1" matInput />
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="w100" appearance="outline">
+                                <mat-label>Option 2</mat-label>
+                                <input type="text" required name="option_2" [(ngModel)]="this.question.option_2" matInput />
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="w100" appearance="outline">
+                                <mat-label>Option 3</mat-label>
+                                <input type="text" required name="option_3" [(ngModel)]="this.question.option_3" matInput />
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="w100" appearance="outline">
+                                <mat-label>Option 4</mat-label>
+                                <input type="text" required name="option_4" matInput [(ngModel)]="this.question.option_4" />
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-6"> 
+                        <mat-form-field class="w100" appearance="fill">
+                            <mat-label>Correct Answer</mat-label>
+                            <mat-select name="questionAnswer" required [(ngModel)]="this.question.questionAnswer" >
+                                <mat-option *ngIf="question.option_1" [value]="question.option_1" >
+                                    {{question.option_1}}
+                                </mat-option>
+                                <mat-option *ngIf="question.option_2" [value]="question.option_2">
+                                    {{question.option_2}}
+                                </mat-option>
+                                <mat-option *ngIf="question.option_3" [value]="question.option_3">
+                                    {{question.option_3}}
+                                </mat-option>
+                                <mat-option *ngIf="question.option_4" [value]="question.option_4">
+                                    {{question.option_4}}
+                                </mat-option>
+                             </mat-select> 
+                        </mat-form-field>
+                    </div>  
+                    <!-- <div class="col-md-6">
+                        <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Image</mat-label>
+                            <input type="image" required name="questionAnswer"/>
+                        </mat-form-field>
+                    </div>   -->
+                    </div>
+                    <div class="container text-center" style="margin-top: 30px;">
+                        <button mat-raised-button color="accent" type="submit"><mat-icon mat-list-icon>add</mat-icon>Add-Question</button>
+                    </div>
+                </form>
+            </div> 
+        </div>
+       </div>
+    </mat-card-content>
+
+</mat-card>
+
+

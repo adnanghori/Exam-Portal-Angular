@@ -1,0 +1,29 @@
+<mat-card *ngFor="let q of quizes" style="margin: 20px;">
+    <mat-list><div mat-subheader>Quizes</div></mat-list>
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>
+            {{q.quizTitle}}
+        </mat-card-title>
+        <mat-card-subtitle>{{q.category.categoryTitle}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{q.quizDescription}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="accent" [routerLink]="'/admin/view-quiz-question/'+q.qid"><mat-icon>question_mark</mat-icon> Questions</button>
+        <button mat-stroked-button color="accent"><mat-icon>grade</mat-icon> Max Marks : {{q.maxMarks}}</button>
+        <button mat-stroked-button color="accent"><mat-icon>list</mat-icon> Number Of Question  : {{q.numberOfQuestion}}</button>
+        <button mat-stroked-button color="accent" style="margin: 10px;"><mat-icon>check_circe_loutline</mat-icon> Attempts</button>
+        <button mat-flat-button color="primary" [routerLink]="'/admin/update-quiz/'+q.qid"><mat-icon>upgrade</mat-icon> Update</button>
+        <button mat-flat-button style="margin: 10px;" (click)="deleteQuiz(q.qid)" color="warn"><mat-icon>delete</mat-icon> Delete</button>
+       
+    </mat-card-actions>
+    
+</mat-card>
+<div class="container text-center">
+    <button style="margin-top: 20px;" mat-icon-button color="accent" aria-label="Example icon button with a home icon" routerLink="/admin/add-quiz">
+        <mat-icon>add</mat-icon>
+        Add New Quiz
+      </button>
+</div>

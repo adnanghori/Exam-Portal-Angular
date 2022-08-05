@@ -1,0 +1,45 @@
+
+<div class="bootstrap-wrapper" style="margin-top: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <mat-card>
+                <div class="container text-center">
+                    <img src="../../../assets/logo.png" class="logo" alt="">
+                    <h1 style="font-family: monospace;">Login To Exam Portal</h1>
+                    
+                    <form (ngSubmit)="submit()">
+                        <!-- username field -->
+                        <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Username</mat-label>
+                            <input 
+                            [(ngModel)]="loginData.username" 
+                            name="username"
+                            required
+                            matInput />
+                            
+                            
+                          </mat-form-field> 
+
+                          <!-- password  field -->
+                              
+                          <mat-form-field appearance="outline" class="full-width">
+                            <mat-label>Password</mat-label>
+                            <input 
+                            [(ngModel)]="loginData.password"
+                            name="password" type="password" required
+                            matInput/>
+                          </mat-form-field> 
+                          <div class="container text-center button">
+                            <button mat-raised-button color="primary" type="submit">LogIn</button>
+                            <button mat-raised-button color="warn" type="reset">Reset</button>
+                          </div>
+                        
+                    </form>
+                
+                </div>
+            </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

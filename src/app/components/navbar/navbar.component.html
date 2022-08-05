@@ -1,0 +1,15 @@
+<mat-toolbar color="accent">
+    <a mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" routerLink="/">
+      <mat-icon>menu_book</mat-icon>
+    </a>
+    <span>Exam Portal</span>
+    <span class="example-spacer"></span>
+    <a *ngIf="!loginService.isLoggedIn()" routerLink="/login" mat-button class="example-icon-button" style="margin: 10px;">Login</a>
+    <a *ngIf="!loginService.isLoggedIn()" routerLink= "/register" mat-button class="example-icon-button" style="margin: 20px;">Register</a>
+    <button (click)="logout()" *ngIf="loginService.isLoggedIn()" mat-button class="example-icon-button">Logout</button>
+
+    <button *ngIf="loginService.isLoggedIn()&&!this.role" mat-button class="example-icon-button" style="margin: 20px;" routerLink="/user-dashboard">{{loginService.getUser().username}}</button>
+    <button *ngIf="loginService.isLoggedIn()&&this.role" mat-button class="example-icon-button" style="margin: 20px;" routerLink="/admin"  >{{loginService.getUser().username}}</button>
+
+
+  </mat-toolbar>

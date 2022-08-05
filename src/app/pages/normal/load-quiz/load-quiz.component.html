@@ -1,0 +1,72 @@
+<div class="bootstrap-wrapper" style="margin-top: 10px;" >
+    
+    <div class="container-fluid">
+        <div class="col-md-12" *ngIf="quiz.length==0">
+            <mat-list>
+                <h1><div  mat-subheader>No Quizes</div></h1>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img  src="../../../../assets/empty.png">
+                        </div>
+                    </div>
+                </div>
+            </mat-list>
+        </div>
+        <mat-list>
+            <h1><div  mat-subheader *ngIf="quiz.length!=0" >Available Quizes</div></h1>
+        </mat-list>
+        <div class="row" *ngIf="quiz">
+           
+            <div class="col-md-6" *ngFor="let q of quiz">
+                <mat-card style="margin-bottom: 20px;">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>
+                            {{q.quizTitle}}
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            {{q.category.categoryTitle}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content style="margin-left:10px">
+                       <p class="truncate">{{q.quizDescription}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div class="row" style="margin-left: 10px;" >
+                            <div class="col-md-6">
+                                <button  mat-icon-button color="primary" >
+                                    <mat-icon>preview</mat-icon>
+                                    View
+                                  </button>
+                            </div>
+                            <div class="col-md-6">
+                                <button  mat-icon-button color="accent" [routerLink]="'/user-dashboard/instruction/'+q.qid">
+                                    <mat-icon>start</mat-icon>
+                                    Start
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left: 10px;">
+                            <div class="col-md-6">
+                                <button  mat-icon-button color="primary"  >
+                                    <mat-icon>format_list_numbered</mat-icon>
+                                    Number Of Question : {{q.numberOfQuestion}}
+                                  </button>
+                            </div>
+                            <div class="col-md-6">
+                                <button  mat-icon-button color="accent">
+                                    <mat-icon>numbers</mat-icon>
+                                    Maximum Marks : {{q.maxMarks}}
+                                </button>
+                            </div>
+                        </div>
+                        
+                       
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+           
+        </div>
+    </div>
+</div>
